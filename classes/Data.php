@@ -1,5 +1,4 @@
 <?php
-namespace SiteAdmin\Data
 
 /**
  * Data handling, accept input and save in file
@@ -15,4 +14,5 @@ class Data
         }
         return false;
     }
+
 }
