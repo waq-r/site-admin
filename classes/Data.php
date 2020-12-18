@@ -6,9 +6,9 @@
 class Data
 {
 
-    public function fileWriteable($filename)
+    public function isWriteable($filename)
     {
-        # confirm data file is writeable
+        # confirm data file/dir is writeable
         if (is_writable($filename)) {
             return true;
         }

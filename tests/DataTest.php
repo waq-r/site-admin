@@ -1,22 +1,32 @@
-<?php
+<?php declare (strict_types = 1);
+use PHPUnit\Framework\TestCase;
 
-include '../autoload.php';
 /**
  *
  */
-$datatest = new DataTest();
-class DataTest
+final class DataTest extends TestCase
 {
-    public function __construct()
+    public function testWriteable(): void
     {
-        $data = new Data();
+        $this->assertTrue(
+            Data::isWriteable(getcwd())
+        );
 
     }
 
-    public function testWriteable($file)
+    public function testNonExistant(): void
     {
-        # code...
-        return $data->fileWriteable($file);
+        $this->assertFalse(
+            Data::isWriteable('/home/null')
+        );
+
+    }
+
+    public function testNonWriteable(): void
+    {
+        $this->assertFalse(
+            Data::isWriteable('/waqar/quite-facebook.css')
+        );
 
     }
 }
