@@ -4,12 +4,12 @@ use PHPUnit\Framework\TestCase;
 /**
  *
  */
-final class DataTest extends TestCase
+final class FileTest extends TestCase
 {
     public function testWriteable(): void
     {
         $this->assertTrue(
-            Data::isWriteable(getcwd())
+            File::isWriteable(getcwd())
         );
 
     }
@@ -17,7 +17,7 @@ final class DataTest extends TestCase
     public function testNonExistant(): void
     {
         $this->assertFalse(
-            Data::isWriteable('/home/null')
+            File::isWriteable('/home/null')
         );
 
     }
@@ -25,7 +25,7 @@ final class DataTest extends TestCase
     public function testNonWriteable(): void
     {
         $this->assertFalse(
-            Data::isWriteable('/waqar/quite-facebook.css')
+            File::isWriteable('/waqar/quite-facebook.css')
         );
 
     }
